@@ -1,0 +1,22 @@
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET /product controllers.ProductController.getAllProduct()
+GET /product/:id controllers.ProductController.getProduct(id : Int)
+PUT /product/:id/:name/:cost/:categoryId controllers.ProductController.updateProduct(id : Int, name : String, cost: Int, categoryId: Int)
+DELETE /product/:id controllers.ProductController.deleteProduct(id : Int)
+POST /product/:name/:cost/:categoryId controllers.ProductController.addProduct(name : String, cost: Int, categoryId: Int)
+
+GET /category controllers.CategoryController.getAllCategories()
+GET /category/:id controllers.CategoryController.getCategory(id : Int)
+PUT /category/:id/:name/:descirption controllers.CategoryController.updateCategory(id : Int, name : String, descirption: String)
+DELETE /category/:id controllers.CategoryController.deleteCategory(id : Int)
+POST /category/:name/:descirption controllers.CategoryController.addCategory(name : String, descirption: String)
+
+OPTIONS  /cart/*path controllers.CartController.options(path: String)
+GET /cart controllers.CartController.getAllCarts()
+GET /cart/:id controllers.CartController.getCart(id : Int)
+PUT /cart/:id/:productId controllers.CartController.addProductToCart(id : Int, productId: Int)
+DELETE /cart/:id controllers.CartController.deleteCart(id : Int)
+POST /cart controllers.CartController.createCart()
+DELETE /cart/:id/:productId controllers.CartController.deleteProductFromCart(id : Int, productId: Int)
